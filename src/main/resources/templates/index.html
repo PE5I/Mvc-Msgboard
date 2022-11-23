@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org"
+                xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Msgboard - Index</title>
+</head>
+<body>
+    <h1>Welcome to the Msgboard</h1>
+    <div class="login">
+        <a href="/login">Login Here</a>
+    </div>
+
+<!--    <b th:inline="text">Hello </b>-->
+<!--    <form th:action="@{/logout}" method="post">-->
+<!--        <input type="submit" value="Sign Out"/>-->
+<!--    </form>-->
+
+    <table>
+        <tbody th:each="post : ${posts}">
+        <tr>
+            <td>
+                <a th:href="@{/posts/{id}(id=${post.id})}">
+                    <b th:text="${post.title}">post title</b>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <i>by </i>
+                <a th:href="@{/users/{id}(id=${post.user.id})}">
+                    <i th:text="${post.user.username}"></i>
+                </a>
+                <i>at </i>
+                <i th:text="${post.date}"></i></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

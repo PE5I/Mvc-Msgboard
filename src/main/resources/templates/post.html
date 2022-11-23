@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Msgboard</title>
+</head>
+<body>
+<h1>View Post</h1>
+
+<table>
+    <tbody th:each="post : ${post}">
+    <tr>
+        <td><b th:text="${post.title}">post title</b></td>
+    </tr>
+    <tr>
+        <td><i>by </i></by><i th:text="${post.user.username}"></i>
+        <i> at </i>
+        <i th:text="${post.date}"></i></td>
+    </tr>
+    <tr>
+        <td><p th:text="${post.content}"></p></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Comments: </h4>
+<table>
+    <tr th:each="comment : ${post.comments}">
+        <td><b th:text="${comment.user.username}"></b></td>
+        <td><i th:text="${comment.comment}"></i></td>
+    </tr>
+
+</table>
+
+<form action="2/submitComment" method="POST">
+    <p>Comment: <input type="text" name="comment" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Msgboard</title>
+</head>
+<body>
+<h1>View User</h1>
+
+<table>
+    <tbody>
+    <tr>
+        <td><b th:text="${user.username}">user name</b></td>
+    </tr>
+    <tr>
+        <td><i th:text="${user.email}"></i></td>
+    </tr>
+    <tr>
+        <td><i th:text="${user.location}"></i></td>
+    </tr>
+    <tr>
+        <td><i th:text="${user.dateJoin}"></i></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
